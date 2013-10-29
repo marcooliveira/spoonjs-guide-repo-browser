@@ -1,0 +1,15 @@
+{
+  "name": "repo-browser",
+  "version": "0.0.0",
+  "devDependencies": {
+    "mout": "~0.6.0",
+    "async": "~0.2.9",
+    "glob": "~3.2.3",
+    "express": "~3.3.4",
+    "connect": "~2.8.4",
+    "requirejs": "~2.1.2",
+    "uglify-js": "~2.3.6",
+    "clean-css": "~1.0.11",
+    "gzip-js": "~0.3.1"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "repo-browser",
+  "version": "0.0.0",
+  "dependencies": {
+    "spoonjs": "*",
+    "requirejs": "~2.1.0",
+    "requirejs-text": "~2.0.0",
+    "require-css": "*",
+    "almond": "~0.2.0",
+    "jquery": "~1.9||~2",
+    "doT": "~0.2",
+    "components-bootstrap": "~3.0.0"
+  }
+}
