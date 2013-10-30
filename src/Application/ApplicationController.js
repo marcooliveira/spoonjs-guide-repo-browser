@@ -1,8 +1,9 @@
 define([
     'spoon/Controller',
     './ApplicationView',
-    './HomeView'
-], function (Controller, ApplicationView, HomeView) {
+    './HomeView',
+    '../Content/ContentController'
+], function (Controller, ApplicationView, HomeView, ContentController) {
 
     'use strict';
 
@@ -11,7 +12,8 @@ define([
 
         _defaultState: 'home',
         _states: {
-            'home': 'homeState'
+            'home': '_homeState',
+            'inner': '_innerState'
         },
 
         /**
@@ -31,12 +33,28 @@ define([
          *
          * @param {Object} state The state parameter bag
          */
-        homeState: function (state) {
+        _homeState: function (state) {
             this._destroyContent();
 
             this._content = this._link(new HomeView());
             this._content.appendTo('#content');
             this._content.render();
+
+            this._content.on('go', function (target) {
+                this.setState('inner', { org: target.org, repo: target.repo });
+            }.bind(this));
+        },
+
+        /**
+         * Inner state handler.
+         *
+         * @param {Object} state The state parameter bag
+         */
+        _innerState: function (state) {
+            this._destroyContent();
+
+            this._content = this._link(new ContentController('#content', state.org, state.repo));
+            this.delegateState(state);
         },
 
         /**

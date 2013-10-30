@@ -37,7 +37,6 @@ define([
                 this._upcast('go', { org: matches[1], repo: matches[2] });
             // Otherwise style with an error
             } else {
-                console.log('no can do!', e, el);
                 el.closest('.input-append').addClass('has-error');
             }
         }
