@@ -34,6 +34,7 @@ define([
          * @param {Object} state The state parameter bag
          */
         _homeState: function (state) {
+console.log('_homeState', state);
             this._destroyContent();
 
             this._content = this._link(new HomeView());
@@ -54,7 +55,7 @@ define([
             this._destroyContent();
 
             this._content = this._link(new ContentController('#content', state.org, state.repo));
-            this.delegateState(state);
+            this._content.delegateState(state);
         },
 
         /**
